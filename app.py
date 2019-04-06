@@ -24,7 +24,7 @@ def sendmsg():
     history.append(msg)
     user.append(usr)
     print(str(history)+' '+str(user))
-    return 'Sendedd!!'
+    return 'Sended!!'
 
 @app.route('/seemsg/')
 def seemsg():
