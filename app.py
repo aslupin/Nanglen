@@ -27,7 +27,7 @@ for i in range (4):
 def root():
     return "Working"
 
-@app.route('/info/') 
+@app.route('/info/')  #choice=0,1,2,3 = vetro,chapter1,MandM,theprize ต่ามลำดับ
 def info():
     bigdata={}
     global allinfo
@@ -60,7 +60,7 @@ def info():
         return jsonify(
             bigdata[3]
         )
-@app.route('/filter/')
+@app.route('/filter/') #ขอค่า rental , min , max ส่งกลับเป็นหอพักที่อยู่ในเงื่อนไขตามค่า min max
 def filter():
     global allrental
     global typeproject
