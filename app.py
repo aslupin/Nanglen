@@ -25,9 +25,9 @@ for i in range (4):
     allinfo.append([name[i],price[i],infos[i],address[i],star[i]])
 @app.route('/')
 def root():
-    return "Working!"
+    return "Working"
 
-@app.route('/info/')
+@app.route('/info/') 
 def info():
     bigdata={}
     global allinfo
@@ -43,9 +43,23 @@ def info():
         allinfo[i].append(1)
         allinfo[i].append(0)
         bigdata[i]=allinfo[i]
-    return jsonify(
-        bigdata
-    )
+    choice=request.args.get('choice')
+    if (choice=='0'):
+        return jsonify(
+            bigdata[0]
+        )
+    elif(choice=='1'):
+        return jsonify(
+            bigdata[1]
+        )
+    elif(choice=='2'):
+        return jsonify(
+            bigdata[2]
+        )
+    elif(choice=='3'):
+        return jsonify(
+            bigdata[3]
+        )
 @app.route('/filter/')
 def filter():
     global allrental
