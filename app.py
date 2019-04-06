@@ -25,7 +25,7 @@ for i in range (4):
     allinfo.append([name[i],price[i],infos[i],address[i],star[i]])
 @app.route('/')
 def root():
-    return "Working"
+    return "Working!"
 
 @app.route('/info/')
 def info():
