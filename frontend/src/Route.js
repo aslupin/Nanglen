@@ -4,11 +4,12 @@ import { Switch, Route } from 'react-router-dom'
 // import Register from './features/form/Register'
 // import Success from './features/form/Success'
 import Home from './features/home/Home'
-
+import Filter from './features/filter/Filter'
+import Detail from './features/detail/Detail'
 export default () => (
   <Switch>
     <Route path="/" exact component={Home} />
-    {/* <Route path="/form/register" exact component={Register} />
-    <Route path="/form/success:id" exact component={Success} /> */}
+    <Route path="/filter" exact component={Filter} />
+    <Route path="/detail" exact component={Detail} />
   </Switch>
 )

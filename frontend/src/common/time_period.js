@@ -6,14 +6,16 @@ const Container = styled.div`
   height: auto;
   font-family: Montserrat;
 `
+
 const LeftDetail = styled.div`
+  z-index: -1;
   position: absolute;
-  padding-top: 20px;
-  padding-left: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
 `
 const HeaderBig = styled.h1`
-  font-size: 20px;
-  font-weight: bolder;
+  font-size: 17px;
+  font-weight: bold;
 `
 const HeaderMe = styled.h1`
   font-size: 15px;
@@ -29,11 +31,46 @@ const HeaderSamll = styled.h1`
 `
 
 const ContainerMockup = styled.div`
+  padding-top: 38px;
   width: 100%;
-  height: 140px;
-  font-size: 18px;
-  font-weight: bold;
+  height: auto;
+  text-align: center;
 `
+const ItemVertical = styled.div`
+  padding-top: 13px;
+  width: 100%;
+  font-size: 22px;
+  font-weight: 600;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+`
+
+const UnderlineI = styled.div`
+  width: 23%;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-color: #000;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.5;
+  display: inline-block;
+  margin-bottom: 2px;
+`
+const UnderlineII = styled.div`
+  width: 23%;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-color: #000;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 2px;
+`
+const UnderlineIII = styled.div`
+  opacity: 0.5;
+`
+
 const time_period = props => (
   <Container>
     <LeftDetail>
@@ -41,6 +78,17 @@ const time_period = props => (
       <HeaderMe>FROM</HeaderMe>
       <HeaderSamll>(MONTH/YEAR)</HeaderSamll>
     </LeftDetail>
+    <ContainerMockup>
+      <ItemVertical>
+        <UnderlineI>3 / 19</UnderlineI>
+      </ItemVertical>
+      <ItemVertical>
+        <UnderlineII>4 / 19</UnderlineII>
+      </ItemVertical>
+      <ItemVertical>
+        <UnderlineIII>5 / 19</UnderlineIII>
+      </ItemVertical>
+    </ContainerMockup>
   </Container>
 )
 

@@ -8,7 +8,12 @@ const NavbarBox = styled.div`
   position: fixed;
   height: 110px;
   box-shadow: 0 60px 100px 0 rgba(0, 0, 0, 0.05);
-  background-color: #f2f2f2;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.25)
+    ),
+    linear-gradient(to bottom, rgba(242, 242, 242, 0), rgba(242, 242, 242, 0));
   width: 100%;
   top: 0px;
   left: 0px;
