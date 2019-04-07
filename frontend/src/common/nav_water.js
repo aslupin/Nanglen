@@ -2,6 +2,8 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import closer from '../assets/icon/close.svg'
+import MoreH from '../assets/icon/more.svg'
+import Share from '../assets/icon/share.svg'
 
 const NavbarBox = styled.div`
   z-index: 2;
@@ -21,34 +23,44 @@ const NavbarBox = styled.div`
   justify-content: space-between;
   display: flex;
 `
-
-const IconTop = styled.img`
-  width: 16.5px;
-  height: 16.5px;
-  text-align: left;
-  padding-left: 10px;
-`
-
-const WrapIcon = styled.div`
+const Container = styled.div`
   width: 100%;
   padding-top: 70px;
-  padding-left: 20px;
   display: flex;
 `
-const TextFliter = styled.div`
-  width: 88%;
-  text-align: center;
-  font-family: Montserrat;
-  font-weight: bolder;
+const R = styled.div`
+  width: 50%;
+  text-align: right;
+`
+const L = styled.div`
+  width: 50%;
+  text-align: left;
+`
+const CloserIcon = styled.img`
+  padding-left: 30px;
+  float: left;
+  width: 16.5px;
+  height: 16.5px;
+`
+const ShareMoreIcon = styled.img`
+  padding-right: 30px;
+  float: right;
+  width: 16.5px;
+  height: 16.5px;
 `
 const Navbar = props => (
   <NavbarBox>
-    <WrapIcon>
-      <a href="/">
-        <IconTop src={closer} />
-      </a>
-      <TextFliter>Filter by</TextFliter>
-    </WrapIcon>
+    <Container>
+      <L>
+        <a href="/">
+          <CloserIcon src={closer} />
+        </a>
+      </L>
+      <R>
+        <ShareMoreIcon src={MoreH} />
+        <ShareMoreIcon src={Share} />
+      </R>
+    </Container>
   </NavbarBox>
 )
 
