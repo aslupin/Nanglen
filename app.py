@@ -2,6 +2,7 @@ from flask import Flask
 from flask import jsonify , request
 import time
 import random
+import copy
 '''
 i = 0
 history=[]
@@ -31,24 +32,25 @@ def root():
 def info():
     bigdata={}
     global allinfo
+    tallinfo=copy.deepcopy(allinfo)
     for i in range (2):
         for j in range (6):
-            allinfo[i].append(1)
+            tallinfo[i].append(1)
         if(i==0):
-            bigdata[i]=allinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tvibfn.jpg'
+            bigdata[i]=tallinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tvibfn.jpg'
         elif(i==1):
-            bigdata[i]=allinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tvij5g.jpg'
+            bigdata[i]=tallinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tvij5g.jpg'
     for i in range(2,4):
-        allinfo[i].append(1)
-        allinfo[i].append(1)
-        allinfo[i].append(0)
-        allinfo[i].append(0)
-        allinfo[i].append(1)
-        allinfo[i].append(0)
+        tallinfo[i].append(1)
+        tallinfo[i].append(1)
+        tallinfo[i].append(0)
+        tallinfo[i].append(0)
+        tallinfo[i].append(1)
+        tallinfo[i].append(0)
         if(i==2):
-            bigdata[i]=allinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tviHVq.jpg'
+            bigdata[i]=tallinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tviHVq.jpg'
         elif(i==3):
-            bigdata[i]=allinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tvivM0.jpg'
+            bigdata[i]=tallinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tvivM0.jpg'
     choice=request.args.get('choice')
     if (choice=='0'):
         return jsonify(
@@ -66,7 +68,7 @@ def info():
         return jsonify(
             bigdata[3]
         )
-@app.route('/filter/') #ขอค่า rental , min , max ส่งกลับเป็นหอพักที่อยู่ในเงื่อนไขตามค่า min max
+@app.route('/filter/')#ขอค่า rental , min , max ส่งกลับเป็นหอพักที่อยู่ในเงื่อนไขตามค่า min max
 def filter():
     global allrental
     global typeproject
@@ -113,7 +115,6 @@ def filter():
     return jsonify(
         orental
     )
+
 if __name__ == "__main__":
     app.run(debug = True,host="0.0.0.0", port=5000)
-
-
