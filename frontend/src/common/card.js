@@ -28,7 +28,7 @@ const ConR = styled.div`
 `
 const ImageOrder = styled.img`
   width: 140px;
-  height: auto;
+  height: 100px;
   padding-bottom: 20px;
   padding-top: 20px;
   padding-left: 15px;
@@ -82,22 +82,26 @@ const MoreIcon = styled.img`
   width: auto;
   padding-right: 15px;
 `
-
+//         img={MockA}
+//         name="PREMIO VETRO"
+//         pay="14,000 BAHT"
+//         water="5 BAHT/UNIT"
+//         elec="5 BAHT/UNIT"
 const Card = props => (
   <CardContainer>
     <ConL>
-      <ImageOrder src={MockA} />
+      <ImageOrder src={props.img} />
     </ConL>
     <ConR>
-      <DetailName>PREMIO VETRO</DetailName>
-      <DetailPay>14,000 BAHT</DetailPay>
+      <DetailName>{props.name}</DetailName>
+      <DetailPay>{props.pay}</DetailPay>
       <Inline>
         <InLineIcon src={Light} />
-        <TextUnit>5 BAHT/UNIT</TextUnit>
+        <TextUnit>{props.elec}</TextUnit>
       </Inline>
       <Inline>
         <InLineIcon src={Drop} />
-        <TextUnit>5 BAHT/UNIT</TextUnit>
+        <TextUnit>{props.water}</TextUnit>
       </Inline>
     </ConR>
     {/* <ConMore> */}

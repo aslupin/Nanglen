@@ -1,10 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Sunny from '../assets/icon/sunny.png'
-import MockA from '../assets/mock/b.png'
-import Light from '../assets/icon/light-bolt.png'
-import Drop from '../assets/icon/drop.png'
-import More from '../assets/icon/more.png'
 
 const Container = styled.div`
   width: 100%;
