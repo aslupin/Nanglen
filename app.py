@@ -27,14 +27,17 @@ for i in range (4):
 def root():
     return "Working"
 
-@app.route('/info/')  #choice=0,1,2,3 = vetro,chapter1,MandM,theprize ต่ามลำดับ
+@app.route('/info/') #choice=0,1,2,3 = vetro,chapter1,MandM,theprize ต่ามลำดับ
 def info():
     bigdata={}
     global allinfo
     for i in range (2):
         for j in range (6):
             allinfo[i].append(1)
-        bigdata[i]=allinfo[i]
+        if(i==0):
+            bigdata[i]=allinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tvibfn.jpg'
+        elif(i==1):
+            bigdata[i]=allinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tvij5g.jpg'
     for i in range(2,4):
         allinfo[i].append(1)
         allinfo[i].append(1)
@@ -42,7 +45,10 @@ def info():
         allinfo[i].append(0)
         allinfo[i].append(1)
         allinfo[i].append(0)
-        bigdata[i]=allinfo[i]
+        if(i==2):
+            bigdata[i]=allinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tviHVq.jpg'
+        elif(i==3):
+            bigdata[i]=allinfo[i],'https://sv1.picz.in.th/images/2019/04/07/tvivM0.jpg'
     choice=request.args.get('choice')
     if (choice=='0'):
         return jsonify(
@@ -72,44 +78,42 @@ def filter():
     count=0
     if(int(maxx)>=max(price)):
         for i in range (int(minn),max(price)+1):
-            if((i in price) and (rental == typeproject[price.index(i)])):
-                orental[name[price.index(i)]]=allrental[price.index(i)]
+            if((i in price) and (rental == typeproject[price.index(i)]) and price.index(i)==0):
+                orental[name[price.index(i)]]=allrental[price.index(i)],'https://sv1.picz.in.th/images/2019/04/07/tvibfn.jpg'
                 count+=1
+            elif((i in price) and (rental == typeproject[price.index(i)]) and price.index(i)==1):
+                orental[name[price.index(i)]]=allrental[price.index(i)],'https://sv1.picz.in.th/images/2019/04/07/tvij5g.jpg'
+                count+=1
+            elif((i in price) and (rental == typeproject[price.index(i)]) and price.index(i)==2):
+                orental[name[price.index(i)]]=allrental[price.index(i)],'https://sv1.picz.in.th/images/2019/04/07/tviHVq.jpg'
+                count+=1
+            elif((i in price) and (rental == typeproject[price.index(i)]) and price.index(i)==3):
+                orental[name[price.index(i)]]=allrental[price.index(i)],'https://sv1.picz.in.th/images/2019/04/07/tvivM0.jpg'
+                count+=1
+            
             if(count==4):
                 break
     else:
         for i in range (int(minn),int(maxx)):
-            if((i in price) and (rental == typeproject[price.index(i)])):
-                orental[name[price.index(i)]]=allrental[price.index(i)]
+            if((i in price) and (rental == typeproject[price.index(i)]) and price.index(i)==0):
+                orental[name[price.index(i)]]=allrental[price.index(i)],'https://sv1.picz.in.th/images/2019/04/07/tvibfn.jpg'
+                count+=1
+            elif((i in price) and (rental == typeproject[price.index(i)]) and price.index(i)==1):
+                orental[name[price.index(i)]]=allrental[price.index(i)],'https://sv1.picz.in.th/images/2019/04/07/tvij5g.jpg'
+                count+=1
+            elif((i in price) and (rental == typeproject[price.index(i)]) and price.index(i)==2):
+                orental[name[price.index(i)]]=allrental[price.index(i)],'https://sv1.picz.in.th/images/2019/04/07/tviHVq.jpg'
+                count+=1
+            elif((i in price) and (rental == typeproject[price.index(i)]) and price.index(i)==3):
+                orental[name[price.index(i)]]=allrental[price.index(i)],'https://sv1.picz.in.th/images/2019/04/07/tvivM0.jpg'
                 count+=1
             if(count==4):
                 break
+    
     return jsonify(
         orental
     )
-
-'''
-@app.route('/sendmsg/')
-def sendmsg():
-    global user
-    global history
-    global timee
-    timee.append(time.ctime())
-    msg=request.args.get('message')
-    usr=request.args.get('user')
-    history.append(msg)
-    user.append(usr)
-    print(str(history)+' '+str(user))
-    return 'Sended!!'
-
-@app.route('/seemsg/')
-def seemsg():
-    histry={}
-    for i in range (len(user)):
-        histry[timee[i]]=[str(user[i]),str(history[i])]
-    return jsonify(
-        histry
-    )
-'''
 if __name__ == "__main__":
     app.run(debug = True,host="0.0.0.0", port=5000)
+
+
