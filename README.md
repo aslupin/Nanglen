@@ -17,14 +17,14 @@ Nangelen เป็นตัวกลางที่คอยจัดการ�
 
 ## Installation
 
-###Clone
+### Clone
 
 ```bash
 git clone https://github.com/aslupin/Nanglen.git
 cd Nanglen
 ```
 
-#Fronend
+### Fronend
 
 ```bash
 cd frontend
@@ -32,7 +32,7 @@ npm install
 npm start
 ```
 
-#Backend
+### Backend
 
 ```bash
 cd backend
